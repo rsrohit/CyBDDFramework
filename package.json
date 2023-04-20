@@ -4,6 +4,7 @@
   "description": "A test automation framework using cypress and cucumber",
   "main": "cypress.config.js",
   "scripts": {
+    "cy:headless": "cypress run --config baseUrl=${baseUrl} --headless",
     "cy:chrome:headless": "cypress run --config baseUrl=${baseUrl} --browser chrome --headless",
     "cy:firefox:headless": "cypress run --config baseUrl=${baseUrl} --browser firefox --headless",
     "cy:chrome": "cypress run --config baseUrl=${baseUrl} --browser chrome",
