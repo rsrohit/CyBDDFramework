@@ -1,4 +1,4 @@
-name: Run tests against STAG and PROD environment
+name: Run All Tests
 on:
   push:
     branches: [master]
