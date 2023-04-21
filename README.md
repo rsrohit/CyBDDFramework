@@ -12,6 +12,10 @@ Using Cypress, we will create a test automation framework with the following fea
 - Test results dashboard with options to compare, analyze history, and generate graphs.
 - CI integration
 
+### Note: 
+- I changed the current tests with application running locally, hence github actions will fail onwards 21st April.
+- Current application used to create tests is from Cypress - https://github.com/cypress-io/cypress-realworld-app
+
 ## 🚀 Lets get started...
 
 ## 🟩 PART 1️⃣
