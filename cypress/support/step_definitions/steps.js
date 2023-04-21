@@ -1,35 +1,57 @@
 import { Given, When, Then } from '@badeball/cypress-cucumber-preprocessor'
+import LoginPage from '../../e2e/pages/loginPage/LoginPage'
+import SignUpPage from '../../e2e/pages/signUpPage/SignUpPage'
+import HomePage from '../../e2e/pages/homePage/HomePage'
 
-const loginPageUrl = "https://identity.devmissiongraph.io"
+const loginPage = new LoginPage()
+const signUpPage = new SignUpPage()
+const homePage = new HomePage()
 
-Given('I am on the landing page', () => {
+Given('I am on the login page', () => {
     cy.visit('/')
-    cy.origin(loginPageUrl, () => cy.contains('Log in to MissionGraph'))
+    loginPage.verifyOnLoginPage()
 })
 
-When('I click on the login with email button', () => { 
-    cy.origin(loginPageUrl, () => {
-        cy.get('body > div.dex-container > div > div > div:nth-child(1) > a > button').click()
-    })
+When('I click on sigh up link', () => {
+    loginPage.clickOnSignUpLink()
 })
 
-When('I type in my email address {string}', (value) => {
-    cy.origin(loginPageUrl, {args: {value}}, ({ value }) => {
-        cy.get('#login').type(value)
-        cy.wait(500)
-    })
+Then('I should be on the sign up page', () => {
+    signUpPage.verifyOnSignUpPage()
+})
+
+When('I type in my first name {string}', (value) => {
+    signUpPage.TypeInFirstNameTextbox(value)
+})
+
+When('I type in my last name {string}', (value) => {
+    signUpPage.TypeInLastNameTextbox(value)
+})
+
+When('I type in my username {string}', (value) => {
+    signUpPage.TypeInUsernameTextbox(value)
 })
 
 When('I type in my password {string}', (value) => {
-    cy.origin(loginPageUrl, {args: {value}}, ({ value }) => {
-        cy.get('#password').type(value)
-        cy.wait(500)
-    })
+    signUpPage.TypeInPasswordTextbox(value)
 })
 
-When('I click on the login button', () => {
-    cy.origin(loginPageUrl, () => {
-        cy.get('#submit-login').click()
-        cy.wait(500)
-    })
+When('I type in my password again {string}', (value) => {
+    signUpPage.TypeInConfirmPasswordTextbox(value)
+})
+
+When('I click on the sign up button', () => {
+    signUpPage.clickOnSignUpButton()
+})
+
+Then('I should be on the login page', () => {
+    loginPage.verifyOnLoginPage()
+})
+
+Then('I should be on the home page', () => {
+    homePage.verifyOnHomePage()
+})
+
+Then('I should see username - {string} on homepage', (value) => {
+    homePage.verifyUsernameOnHomePage(value)
 })

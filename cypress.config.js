@@ -6,7 +6,7 @@ const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esb
 module.exports = defineConfig({
     projectId: "nvh163",
     e2e: {
-        baseUrl: "https://pro.missiongraph.io/",
+        baseUrl: "http://localhost:3000/",
         setupNodeEvents(on, config) {
             on("file:preprocessor", createBundler({plugins: [createEsbuildPlugin.default(config)],}));
             preprocessor.addCucumberPreprocessorPlugin(on, config);

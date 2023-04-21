@@ -2,16 +2,30 @@ var elements = require('./elements')
 
 class LoginPage {
 
-    typeInEmailField(value) {
-        return cy.get(elements.LOGINPAGE.EMAIL_TEXT).type(value)
+    verifyOnLoginPage() {
+        return cy.get(elements.LOGINPAGE.LOGIN_PAGE_HEADING)
+                    .should('be.visible')
+                    .and('have.text', 'Sign in')
     }
 
-    typeInPasswordField(value) {
+    typeInUsernameTextbox(value) {
+        return cy.get(elements.LOGINPAGE.USERNAME_TEXT).type(value)
+    }
+
+    typeInPasswordTextbox(value) {
         return cy.get(elements.LOGINPAGE.PASSWORD_TEXT).type(value)
     }
 
-    clickLoginButton() {
-        return cy.get(elements.LOGINPAGE.LOGIN_BUTTON).click()
+    checkRememberMeCheckbox() {
+        return cy.get(elements.LOGINPAGE.REMEMBER_ME_CHECKBOX).check()
+    }
+
+    clickOnSignInButton() {
+        return cy.get(elements.LOGINPAGE.SIGN_IN_BUTTON).click()
+    }
+
+    clickOnSignUpLink() {
+        return cy.get(elements.LOGINPAGE.SIGN_UP_LINK).click()
     }
 }
 
