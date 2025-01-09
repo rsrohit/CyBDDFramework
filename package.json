@@ -12,14 +12,22 @@
     "cy:headed": "cypress run --config baseUrl=${baseUrl} --headed",
     "cy:test": "cypress run --config baseUrl=${baseUrl}"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rsrohit/CyBDDFramework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rsrohit/CyBDDFramework/issues"
+  },
+  "homepage": "https://github.com/rsrohit/CyBDDFramework#readme",
   "keywords": [],
   "author": "Rohit Shinde",
   "license": "ISC",
   "devDependencies": {
-    "@badeball/cypress-cucumber-preprocessor": "^16.0.3",
-    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
-    "cypress": "^12.10.0",
-    "cypress-mochawesome-reporter": "^3.3.0"
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^13.17.0",
+    "cypress-mochawesome-reporter": "^3.8.2"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/support/step_definitions/",
